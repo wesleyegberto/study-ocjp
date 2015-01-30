@@ -11,9 +11,14 @@ public class TiposBasicos {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		/*
-		 * Ordem Crescente dos Tipos char -> byte -> short -> int -> float ->
-		 * double
+		 * Ordem Crescente dos Tipos byte -> short -> int -> float -> double
 		 */
+		byte byteMin = -128;
+		byte byteMax = 127;
+		
+		short shortMin = -32768;
+		short shortMax = 32767;
+
 		int intMin = -2147483648;
 		int intMax = 2147483647;
 
@@ -22,13 +27,8 @@ public class TiposBasicos {
 		char b = 'c';
 		char c = 23; // armazenará o caractere ASCII representado pelo 23
 		b += c;
-
-		byte byteMin = -128;
-		byte byteMax = 127;
-
-		short shortMin = -32768;
-		short shortMax = 32767;
-
+		
+		
 		/*
 		 * Arrays
 		 */
@@ -42,9 +42,18 @@ public class TiposBasicos {
 		int[] f = new int[] { 1, 2, 3, 4, 5 };
 		int[] g = { 1, 2, 3, 4, 5 };
 		// int[] h = new int[5]{1,2,3,4,5}; declaração inválida
-		int[] i[] = new int[][] { { 1, 2 }, { 3, 4 }, { 5, 6 } }; // array de 2
-																	// dimensões
+		// array de duas dimensões
+		int[] i[] = new int[][] { { 1, 2 }, { 3, 4 }, { 5, 6 } }; 
 		int[][] j[][]; // array de 4 dimensões
 
+		
+		/*
+		 * Atribuição em arrays
+		 */
+		//char[] charArr = new char[3];
+		//int[] intArr = charArr; não funciona
+		Double[] doubles = new Double[3];
+		Number[] numeros = doubles;
+		numeros[0] = Integer.valueOf("4");
 	}
 }

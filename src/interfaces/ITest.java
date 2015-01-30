@@ -4,6 +4,8 @@ public abstract interface ITest {
 	public void doStuff();
 
 	public abstract void doDof();
+	
+	ITest getInstance();
 }
 
 interface ITestF extends ITest {
@@ -28,6 +30,9 @@ class T1 implements ITestF {
 
 	}
 
+	public ITestF getInstance() {
+		return null;
+	}
 }
 
 class T2 implements ITest {
@@ -41,4 +46,7 @@ class T2 implements ITest {
 
 	}
 
+	public T1 getInstance() {
+		return null;
+	}
 }

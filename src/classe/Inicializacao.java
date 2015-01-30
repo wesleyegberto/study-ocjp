@@ -9,14 +9,12 @@ public class Inicializacao {
 
 		System.out.printf("%nfinal Super.base: ");
 		// Nessa chamada não é inicializada pois é o base é static final e isso
-		// não inicializa
-		// a classe ou superclasses
+		// não inicializa a classe ou superclasses
 		int id = Super.base;
 
 		System.out.printf("%nSuper.id: ");
 		// Nessa chamada apenas a classe Super será inicializada pois o id é
-		// estático e isso inicializa
-		// apenas a classe em que foi declarada.
+		// estático e isso inicializa apenas a classe em que foi declarada.
 		id = Super.id;
 
 		System.out.printf("%nnew Two(): ");
@@ -35,7 +33,7 @@ class Super {
 	static final int base = 3;
 	static int id = 30;
 	static {
-		System.out.print("Super ");
+		System.out.print("[Super static block]");
 	}
 }
 

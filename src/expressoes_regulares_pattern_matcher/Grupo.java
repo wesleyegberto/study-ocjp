@@ -1,7 +1,7 @@
 package expressoes_regulares_pattern_matcher;
 
-import java.util.regex.*;
-import javax.swing.JOptionPane;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Grupo {
 	public static void main(String[] args) throws Exception {

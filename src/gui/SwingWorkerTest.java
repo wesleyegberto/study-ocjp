@@ -129,7 +129,7 @@ public class SwingWorkerTest extends JFrame {
 				if(isCancelled()) {
 					return i;
 				}
-
+				
 				setProgress((i) * 100 / max);
 				publish(i);
 				Thread.sleep(1000);

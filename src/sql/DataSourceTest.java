@@ -51,8 +51,8 @@ public class DataSourceTest {
 		ds.setServerName("127.0.0.1");
 		ds.setPort(3306);
 		ds.setUser("root");
-		ds.setPassword("123456");
-		ds.setDatabaseName("vm_controlehoras");
+		ds.setPassword("1234abc@");
+		ds.setDatabaseName("Estudo");
 		return ds;
 	}
 
@@ -64,8 +64,8 @@ public class DataSourceTest {
 		ds.setServerName("127.0.0.1");
 		ds.setPort(3306);
 		ds.setUser("root");
-		ds.setPassword("123456");
-		ds.setDatabaseName("vm_controlehoras");
+		ds.setPassword("1234abc@");
+		ds.setDatabaseName("Estudo");
 		return ds;
 	}
 

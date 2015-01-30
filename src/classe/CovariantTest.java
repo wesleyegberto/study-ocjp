@@ -44,7 +44,7 @@ public class CovariantTest {
 		 * retorno está no tipo da superclasse.
 		 */
 		CovariantTest c1 = new SubCovariantTest();
-		System.out.println(((B) c1.getObject()).x);
+		System.out.println(((A) c1.getObject()).x);
 	}
 }
 

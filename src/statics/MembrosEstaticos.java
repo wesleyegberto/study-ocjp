@@ -13,7 +13,7 @@ public class MembrosEstaticos {
 	}
 
 	// bloco de inicialização, é executado toda vez que um objeto é instânciado,
-	// e antes do construtor
+	// após a chamada super() e antes do resto do construtor
 	{
 		System.out.println("Bloco de inicializacao executado!\n");
 	}

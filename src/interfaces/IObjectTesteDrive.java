@@ -6,6 +6,10 @@ public class IObjectTesteDrive implements IObject {
 		// Aqui será usado o getHash()
 		System.out.println(Math.random());
 	}
+	
+	public long getHash() {
+		return (long) (Math.random() * 92991);
+	}
 
 	public void testeMetodoObject(IObject t) {
 		t.getClass(); // o método getClass() é da classe Object, da qual todas

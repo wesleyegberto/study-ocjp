@@ -12,10 +12,11 @@ public class ArrayBinarySearchDesorder {
 			System.out.print(a[i] + " ");
 		System.out.print("]\n");
 
-		/*
-		 * Arrays.sort(a); System.out.print("["); for(int i = 0; i < a.length;
-		 * i++) System.out.print(a[i] + " "); System.out.print("]\n\n");
-		 */
+		Arrays.sort(a);
+		System.out.print("[");
+		for(int i = 0; i < a.length; i++)
+			System.out.print(a[i] + " ");
+		System.out.print("]\n\n");
 
 		while(true) {
 			int r = (int) (Math.random() * 100);
