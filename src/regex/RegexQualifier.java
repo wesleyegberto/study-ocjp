@@ -9,11 +9,12 @@ public class RegexQualifier {
 		Scanner sc = new Scanner(System.in);
 		Pattern patterns[] = new Pattern[3];
 
-		// Greedy
+		// Greedy: consome toda a string e testa da direita para esquerda
 		patterns[0] = Pattern.compile("red.+red");
-		// Reluctant
+		// Reluctant: consome a string aos poucos pois testa da esquerda para a direita
 		patterns[1] = Pattern.compile("red.+?red");
-		// Possessive
+		// Possessive: .++ irá consumir todo o resto da string 
+		// não restando nada para testar com "red"
 		patterns[2] = Pattern.compile("red.++red");
 
 		System.out.format("Enter input string to search: ");

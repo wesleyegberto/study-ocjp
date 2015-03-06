@@ -18,7 +18,7 @@ public class ComparableTest implements Comparable {
 			return false;
 	}
 
-	/* Seguindo equals(), retornará 0 quando forem iguais. */
+	/* Seguindo equals(), retornarÃ¡ 0 quando forem iguais. */
 	public int compareTo(Object o) {
 		ComparableTest c = (ComparableTest) o;
 

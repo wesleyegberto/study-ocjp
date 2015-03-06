@@ -6,13 +6,13 @@ public class TypeParametersError {
 		NodeInteger myNode = new NodeInteger();
 		myNode.set(10);
 
-		// Por n„o passar o Type Argument o compilador com Type Erasure
-		// substituir· as ocorrÍncias de T por Object
+		// Por n√£o passar o Type Argument o compilador com Type Erasure
+		// substituir√° as ocorr√™ncias de T por Object
 		Node n = myNode;
 
-		// Erro em tempo de execuÁ„o pois est· com inst‚ncia do NodeInteger que
+		// Erro em tempo de execu√ß√£o pois est√° com inst√¢ncia do NodeInteger que
 		// recebe um Integer
-		// e em tempo de compilaÁ„o recebe um Object.
+		// e em tempo de compila√ß√£o recebe um Object.
 		n.set("EPA");
 		Integer i = myNode.get();
 		System.out.println("What I have: " + i);
@@ -45,12 +45,12 @@ class NodeInteger extends Node<Integer> {
 
 	/**
 	 * Bridge Method Quando uma classe estende outra classe ou implementa uma
-	 * interface genÈrica, para preservar o polimorfismo, o compilador cria um
-	 * mÈtodo sintÈtico (chamado de Brigde method) que faz com que o mÈtodo da
+	 * interface gen√©rica, para preservar o polimorfismo, o compilador cria um
+	 * m√©todo sint√©tico (chamado de Brigde method) que faz com que o m√©todo da
 	 * superclasse ou interface seja realmente sobreescrito. Ex.: No caso o
-	 * set(T) n„o È sobreescrito por set(Integer) e sim sobrecarregado, pois as
-	 * assinaturas s„o diferentes. Ent„o o compilador cria o mÈtodo abaixo para
-	 * sobreescrever o mÈtodo genÈrico corretamente. public void setData(Object
+	 * set(T) n√£o √© sobreescrito por set(Integer) e sim sobrecarregado, pois as
+	 * assinaturas s√£o diferentes. Ent√£o o compilador cria o m√©todo abaixo para
+	 * sobreescrever o m√©todo gen√©rico corretamente. public void setData(Object
 	 * data) { setData((Integer) data); }
 	 */
 }

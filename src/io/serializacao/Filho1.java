@@ -18,9 +18,11 @@ public class Filho1 extends PaiSemImplementar implements Serializable {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Filho1 f = new Filho1();
-		f.cod1 = f.cod += 3;
+		f.cod = 4;
+		f.cod1 = 3;
 		f.cod2 = 3.1;
-		System.out.println("\nf : " + f.cod + "\n" + f.cod1 + "\n\n");
+		
+		System.out.println("\nf : " + f.cod + "\n" + f.cod1 + "\n" + f.cod2 + "\n");
 
 		FileOutputStream fos = new FileOutputStream("obj1.ser");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -34,6 +36,6 @@ public class Filho1 extends PaiSemImplementar implements Serializable {
 
 		Filho1 f2 = (Filho1) ois.readObject();
 
-		System.out.println("\nf2 : " + f2.cod + "\n" + f2.cod1 + "\n " + f2.cod2 + "\n");
+		System.out.println("\nf2 : " + f2.cod + "\n" + f2.cod1 + "\n" + f2.cod2 + "\n");
 	}
 }

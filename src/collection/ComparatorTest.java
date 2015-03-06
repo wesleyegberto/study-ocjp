@@ -16,14 +16,14 @@ public class ComparatorTest {
 		ComparatorTest c1 = new ComparatorTest(69);
 		ComparatorTest c2 = new ComparatorTest(25);
 
-		// Objeto que ser· usando na comparaÁ„o
+		// Objeto que ser√° usando na compara√ß√£o
 		ComparatorC c = new ComparatorC();
 
 		System.out.println(c.compare(c1, c2));
 	}
 }
 
-// Classe que implementa Comparator, ser· utilizada para efetuar comparaÁ„o de
+// Classe que implementa Comparator, ser√° utilizada para efetuar compara√ß√£o de
 // objetos
 class ComparatorC implements Comparator {
 	public int compare(Object o1, Object o2) {

@@ -1,6 +1,7 @@
 package formatador;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Locale;
 
 public class NumberFormatTest {
@@ -15,7 +16,7 @@ public class NumberFormatTest {
 		System.out.println("==Using Instance==");
 		nf = NumberFormat.getInstance();
 		nf.setMinimumFractionDigits(4); // Define a quantidade mínima de casas
-										// decimais
+										// decimais na formatação
 		number = nf.format(300.232323);
 		System.out.println(number);
 
@@ -24,11 +25,12 @@ public class NumberFormatTest {
 
 		nf = NumberFormat.getInstance(Locale.US);
 		nf.setMinimumFractionDigits(4); // Define a quantidade mínima de casas
-										// decimais
+										// decimais na formatação
 		number = nf.format(300.232323);
 		System.out.println(number);
 
-		number = nf.format(300232323);
+		number = nf.format(300232323.55);
+		nf.setParseIntegerOnly(true);
 		System.out.println(number);
 
 		System.out.println("==Using Currency==");
@@ -60,6 +62,5 @@ public class NumberFormatTest {
 
 		number = nf.format(300232323);
 		System.out.println(number);
-
 	}
 }

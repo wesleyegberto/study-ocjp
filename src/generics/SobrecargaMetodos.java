@@ -1,8 +1,8 @@
 package generics;
 
-// Com sobrecarga de métodos genéricos, é chamado aquele que "melhor"
+// Com sobrecarga de mÃ©todos genÃ©ricos, Ã© chamado aquele que "melhor"
 // corresponde ao tipo passado
-// aquele que é mais específico para o tipo passado.
+// aquele que Ã© mais especÃ­fico para o tipo passado.
 public class SobrecargaMetodos {
 	static <T, V> void metodo(T t, V v) {
 		System.out.println("In metodo 1");

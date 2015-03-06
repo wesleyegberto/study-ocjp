@@ -41,8 +41,9 @@ public class TestMethodThread {
 		try {
 			System.out.println(name + " is going to sleep.");
 			Thread.currentThread();
+			// Dá a chance para outra thread executar
 			Thread.yield();
-			Thread.sleep(10000);
+			Thread.sleep(3000);
 			System.out.println(name + " wake up.");
 			System.out.println(name + " needed envia1.");
 			envia1(name);

@@ -4,10 +4,13 @@
 
 package formatador;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Properties;
+
 import static java.lang.System.*;
 
 public class SimpleDateFormatTest {
@@ -40,11 +43,35 @@ public class SimpleDateFormatTest {
 		System.out.println("\n\nTestes com Locale");
 		Locale loc = new Locale("pt", "Br"); // Lingua e pais
 
-		f = new SimpleDateFormat("EEEE, MMMM dd", loc); // EEEE -> dia da semana
-														// por extenso, MMMM ->
-														// dia do mes por
-														// extenso
+		// EEEE -> dia da semana por extenso, MMMM -> dia do mes por extenso
+		f = new SimpleDateFormat("EEEE, MMMM dd", loc);
 		out.println("EEEE MMMM dd => " + f.format(d));
+		
+
+		String dataExtenso = null;
+		DateFormat dateFormat = null;
+		Properties myConfig = System.getProperties();
+		
+		String defLang = myConfig.getProperty("user.language");
+		String defCountry = myConfig.getProperty("user.country");
+		
+		System.out.println("\nUser languange: " + defLang);
+		System.out.println("User country: " + defCountry);
+		
+		Locale.setDefault(new Locale(defLang, defCountry));
+
+		dateFormat = new SimpleDateFormat("EEEEE',' dd 'de' MMMM");
+		dataExtenso = dateFormat.format(c.getTime());
+		System.out.println(dataExtenso);
+
+		dateFormat = new SimpleDateFormat("'Barueri,' dd 'de' MMMM 'de' yyyy");
+		dataExtenso = dateFormat.format(c.getTime());
+		System.out.println(dataExtenso);
+
+		Locale.setDefault(new Locale("en", "US"));
+		dateFormat = new SimpleDateFormat("MMM dd',' yyyy");
+		dataExtenso = dateFormat.format(c.getTime());
+		System.out.println(dataExtenso);
 	}
 
 }

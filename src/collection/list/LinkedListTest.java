@@ -1,10 +1,13 @@
 /**
- * @author Wesley Egberto de Brito Objetivo: Teste da class LinkedList
+ * @author Wesley Egberto de Brito
+ * Objetivo: Teste da class LinkedList
  * 
- *         .… eficiente na inserÁ„o de itens nas extremidades (Pilha e Fila),
- *         porÈm tem navegaÁ„o e localizaÁ„o È ruim .Permite itens repetidos e
- *         null .Implementa Deque .N„o È sincronizada .Contem implementaÁ„o para
- *         se comportar como uma Pilha e uma Fila
+ * > √â eficiente na inser√ß√£o de itens nas extremidades (Pilha e Fila), por√©m
+ *   tem navega√ß√£o e localiza√ß√£o √© ruim;
+ * > Permite itens repetidos e null;
+ * > Implementa Deque;
+ * > N√£o √© sincronizada;
+ * > Cont√©m implementa√ß√£o para se comportar como uma Pilha e uma Fila;
  */
 
 package collection.list;
@@ -16,13 +19,44 @@ import java.util.LinkedList;
 @SuppressWarnings("unchecked")
 public class LinkedListTest {
 	public static void main(String[] args) {
+		LinkedList<String> ll = new LinkedList<String>();
+
+		// LIFO/FILO - Stack: push(E), poll()/pop(), peek()
+		ll.push("A"); // call addFirst(E)
+		ll.push("B");
+		ll.push("C");
+
+		ll.add("D"); // add no final da lista, retorna true
+		ll.offer("G"); // call add(E)
+		ll.addFirst("E"); // chamado pelo push(E)
+		ll.addLast("F"); // igual ao add() mas n√£o void e lan√ßa exception
+
+		// Retorna um ListIterator posicionado no in√≠cio da lista para poder
+		// navegar na ordem normal (o m√©todo previousIndex() nessa posi√ß√£o retorna -1)
+		ListIterator<String> li = ll.listIterator();
+		while(li.hasNext()) {
+			System.out.println(li.next());
+		}
+
+		// Pega e remove o primeiro elemento (retorna null quando vazia)
+		System.out.println("poll: " + ll.poll());
+		// Pega o primeiro elemento sem remover (retorna null quando vazia)
+		System.out.println("peek: " + ll.peek());
+		// Pega e remove o primeiro elemento (Lan√ßa NoSuchElementException)
+		System.out.println("pop: " + ll.pop());
+
+		// Retorna um ListIterator posicionado no fim da lista para poder
+		// navegar na ordem inversa (o m√©todo nextIndex() nessa posi√ß√£o retorna
+		// o size da lista)
+		li = ll.listIterator(ll.size());
+		li.hasNext();
+		
 		LinkedList l = new LinkedList();
 
 		l.add(1);
 		l.add(2);
-		l.add(2, 5); // Adiciona o Integer(5) na posiÁ„o 2, se for uma posiÁ„o
-						// mais que o total È lanÁado uma exception de
-						// IndexOutOfBounds
+		l.add(2, 5); // Adiciona o Integer(5) na posi√ß√£o 2, se for uma posi√ß√£o
+						// fora do array √© lan√ßado uma IndexOutOfBoundsException
 
 		System.out.println("Itens full");
 		for(int i = 0; i < l.size(); i++)

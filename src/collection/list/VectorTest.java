@@ -1,9 +1,10 @@
 /**
- * @author Wesley Egberto de Brito Objetivo: Teste da class Vector
+ * @author Wesley Egberto de Brito
+ * Objetivo: Teste da class Vector
  * 
- *         .A principal diferenÁa do ArrayList È que È thread-safe .… uma
- *         implementaÁ„o legada (anterior ao Collections Framework) e deve ser
- *         substituida pela java.util.concurrent.CopyOnWriteArrayList
+ * > A principal diferen√ßa do ArrayList √© que √© thread-safe;
+ * > √â uma implementa√ß√£o legada (anterior ao Collections Framework) e deve ser
+ *   substitu√≠da pela java.util.concurrent.CopyOnWriteArrayList;
  */
 
 package collection.list;

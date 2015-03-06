@@ -13,6 +13,7 @@ public class Referencias {
 		Referencias ref = new Referencias();
 		Inner1 in = ref.new Inner1();
 
+		System.out.println(ref.nome);
 		System.out.println(in.nome1);
 		System.out.println(in.nome2);
 		System.out.println(in.nome3);

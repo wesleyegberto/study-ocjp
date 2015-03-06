@@ -1,23 +1,38 @@
 /**
- * Type Erasure .Genéricos foram introduzidos no Java para permitir uma
- * programação genérica e para permitir ao compilador checagem de tipos mais
- * rigorosas. .Para implementar genéricos o compilador Java executa um processo,
- * chamado Type Erasure, para deixar o código genérico e consistente. Essas
- * operações são: -substituir todas as ocorrências do type parameters pelos
- * tipos mais específicos. Ex.: Quando são lower bounded ou ubounded é
- * substituído por Object List<? super Number> lst; => List<Object> lst; List<T>
- * lst; -> List<Object> lst; Quando são upper bounded são substituído pelo
- * supertipo passado List<? extends Number> lst; -> List<Number> lst; -insere os
- * casts necessários depois de substituir os type parameters Ex.: O código
- * abaixo: List<? extends Number> lst = new ArrayList(); lst.add(10); int x =
- * lst.get(0).intValue(); Vira: List<Number> lst = new ArrayList<Number>();
- * lst.add((Number)10); int x = ((Number) lst.get(0)).intValue();
+ * Type Erasure
  * 
- * Varargs .Genéricos com varargs pode causas: -poluição da memória heap -lançar
- * ClassCastException .Se não aplicado corretamente por causar problemas. Ex.:
- * <T> void doStuff(T ... arg) { Object[] b = arg; // Isso permite adicionar
- * qualquer coisa no array e posteriormente quando for ler // poderá lançar
- * ClassCastException b[0] = new ArrayList<String>(); }
+ * > GenÃ©ricos foram introduzidos no Java para permitir uma
+ *   programaÃ§Ã£o genÃ©rica e para permitir ao compilador checagem de tipos mais
+ *   rigorosas;
+ * > Para implementar genÃ©ricos o compilador Java executa um processo,
+ *   chamado Type Erasure, para deixar o cÃ³digo genÃ©rico e consistente. Essas
+ *   operaÃ§Ãµes sÃ£o:
+ *   - substituir todas as ocorrÃªncias do type parameters pelos tipos mais especÃ­ficos.
+ *   Ex.: Quando sÃ£o lower bounded ou ubounded Ã© substituÃ­do por Object
+ *     List<? super Number> lst => List<Object> lst;
+ *     List<T> lst -> List<Object> lst; 
+ *   Quando sÃ£o upper bounded sÃ£o substituÃ­do pelo  supertipo passado
+ *     List<? extends Number> lst -> List<Number> lst;
+ *   - insere os casts necessÃ¡rios depois de substituir os type parameters
+ *   Ex.: O cÃ³digo  abaixo:
+ *     List<? extends Number> lst = new ArrayList();
+ *     lst.add(10);
+ *     int x = lst.get(0).intValue();
+ *   Vira:
+ *     List<Number> lst = new ArrayList<Number>();
+ *     lst.add((Number)10);
+ *     int x = ((Number) lst.get(0)).intValue();
+ * 
+ * Varargs
+ * > GenÃ©ricos com varargs pode causar:
+ *  - poluiÃ§Ã£o da memÃ³ria heap
+ *  - lanÃ§ar ClassCastException
+ *> Se nÃ£o aplicado corretamente por causar problemas.
+ *  Ex.: <T> void doStuff(T ... arg) {
+ *      Object[] b = arg; // Isso permite adicionar qualquer coisa no array e
+ *      // posteriormente quando for ler poderÃ¡ lanÃ§ar ClassCastException
+ *      b[0] = new ArrayList<String>();
+ *    }
  * 
  * 
  */
@@ -31,11 +46,11 @@ public class TypeParameters {
 	/**
 	 * Recebe List de qualquer coisa. O tipo "qualquer coisa" (T) deve ser
 	 * declara entre colchetes angulares (<>) antes do tipo de retorno do
-	 * método.
+	 * mÃ©todo.
 	 */
 	static <T> T printGeneric(List<T> l) {
 		/*
-		 * Não permite inserção l.add(new Integer(3)); l.add(null);
+		 * NÃ£o permite inserÃ§Ã£o l.add(new Integer(3)); l.add(null);
 		 */
 
 		for(T t : l) {
@@ -50,7 +65,7 @@ public class TypeParameters {
 	 */
 	static void printObject(List<Object> l) {
 		/*
-		 * Não permite inserção l.add(new Object()); l.add(null);
+		 * NÃ£o permite inserÃ§Ã£o l.add(new Object()); l.add(null);
 		 */
 		for(Object o : l) {
 			System.out.print(o + "\t");
@@ -59,12 +74,12 @@ public class TypeParameters {
 	}
 
 	/**
-	 * Recebe apenas List de Integer ou RawType (lançará exception se o RawType
-	 * não conter somente Integer)
+	 * Recebe apenas List de Integer ou RawType (lanÃ§arÃ¡ exception se o RawType
+	 * nÃ£o conter somente Integer)
 	 */
 	static void printInteger(List<Integer> l) {
 		/*
-		 * Não permite inserção l.add(new Integer(3)); l.add(null);
+		 * NÃ£o permite inserÃ§Ã£o l.add(new Integer(3)); l.add(null);
 		 */
 		for(Integer i : l) {
 			System.out.print(i + "\t");
@@ -77,7 +92,7 @@ public class TypeParameters {
 	 */
 	static <T> void printListGeneric(List<List<T>> l) {
 		/*
-		 * Não permite inserção l.add(new Integer(3)); l.add(null);
+		 * NÃ£o permite inserÃ§Ã£o l.add(new Integer(3)); l.add(null);
 		 */
 		for(List<T> list : l)
 			for(T t : list)
@@ -91,7 +106,7 @@ public class TypeParameters {
 		l1.add(new Object());
 		l1.add(new Object());
 		l1.add(new String("TT"));
-		l1.add(null); // -> Não permite adicionar qualquer coisa que estenda
+		l1.add(null); // -> NÃ£o permite adicionar qualquer coisa que estenda
 						// Object
 
 		List<Integer> l2 = new ArrayList<Integer>();
@@ -101,16 +116,16 @@ public class TypeParameters {
 		List<String> l3 = Arrays.asList("T1", "T2", "T3");
 
 		/**
-		 * RawType: Usa Object. Não especificar o tipo do argumento permite usar
-		 * qualquer método com o l5.
+		 * RawType: Usa Object. NÃ£o especificar o tipo do argumento permite usar
+		 * qualquer mÃ©todo com o l5.
 		 */
 		List l5 = new ArrayList(); // Warning unchecked
 		l5.add(10);
 		l5.add("T20");
 		l5.add(30);
 
-		// l1 = l2; //-> Não permite (Não envolve RawType ou wildcard, e
-		// List<Integer> não é subtipo de List<Object>)
+		// l1 = l2; //-> NÃ£o permite (NÃ£o envolve RawType ou wildcard, e
+		// List<Integer> nÃ£o Ã© subtipo de List<Object>)
 
 		printGeneric(l1);
 		printInteger(l2);
@@ -120,7 +135,7 @@ public class TypeParameters {
 
 		List<List<Integer>> list = new ArrayList<List<Integer>>();
 		list.add(l2);
-		// O argumento genérico abaixo é opcional pois o java usa Type Inference
+		// O argumento genÃ©rico abaixo Ã© opcional pois o java usa Type Inference
 		// para saber o tipo que ele precisa
 		TypeParameters.<Integer> printListGeneric(list);
 

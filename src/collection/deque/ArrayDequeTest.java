@@ -1,10 +1,14 @@
 /**
- * @author Wesley Egberto de Brito Objetivo: Testar a classe ArrayDeque que
- *         implementa Deque -… uma fila FIFO que tambÈm permite as operaÁıes no
- *         fim da lista -possui os mesmos mÈtodos da Queue, porÈm com extens„o
- *         First e Last (para o inicio e fim da lista) Ex: offerFirst(),
- *         offerLast(), pollFirst(), pollLast(), peekFirst(), peekLast(),
- *         addLast(), ...
+ * @author Wesley Egberto de Brito
+ * 
+ * Objetivo: Testar a classe ArrayDeque que implementa Deque
+ * 
+ * > Utiliza internamente um array;
+ * > √â uma fila FIFO que tamb√©m permite as opera√ß√µes no fim do array;
+ * > Possui os mesmos m√©todos da Queue, por√©m com extens√£o First e Last (para o inicio e fim da lista)
+ *   Ex: offerFirst(), offerLast(), pollFirst(), pollLast(), peekFirst(), peekLast(), addLast(), ...;
+ *   
+ * 
  */
 package collection.deque;
 
@@ -15,13 +19,13 @@ public class ArrayDequeTest {
 	public static void main(String[] args) {
 		ArrayDeque deck = new ArrayDeque<Integer>();
 
-		deck.addLast(2); // Adiciona no fim, lanÁa NullPointerException se o
+		deck.addLast(2); // Adiciona no fim, lan√ßa NullPointerException se o
 							// argumento for null
-		deck.addFirst(3); // Adiciona no inicio, lanÁa NullPointerException se o
+		deck.addFirst(3); // Adiciona no inicio, lan√ßa NullPointerException se o
 							// argumento for null
-		deck.offerFirst(32); // Adiciona no inicio, lanÁa NullPointerException
+		deck.offerFirst(32); // Adiciona no inicio, lan√ßa NullPointerException
 								// se o argumento for null
-		deck.offerLast(31); // Adiciona no inicio, lanÁa NullPointerException se
+		deck.offerLast(31); // Adiciona no inicio, lan√ßa NullPointerException se
 							// o argumento for null
 
 		deck.peekFirst();

@@ -1,10 +1,11 @@
 /**
- * Os Bounded Type Parameters s„o usados para limitar os tipos de objetos que
- * ser„o adicionados em uma coleÁ„o.
+ * Os Bounded Type Parameters s√£o usados para limitar os tipos de objetos que
+ * ser√£o adicionados em uma cole√ß√£o.
  * 
- * Sintaxe: Upper: < {nome} extends {Superclass or Interface}> Lower: < ? super
- * {Subclasse or interface}> Ex: <E extends Object> <E extends List> List<?
- * super Integer>
+ * Sintaxe:
+ *  - Upper: < {nome} extends {Superclass or Interface}>
+ *  - Lower: < ? super {Subclasse or interface}>
+ * Ex: <E extends Object> <E extends List> List<? super Integer>
  */
 package generics;
 
@@ -14,35 +15,48 @@ import java.util.List;
 
 public class BoundedTypeParameters {
 	/**
-	 * Upper Bounded Type Recebe um List de elementos Number ou seus subtipos
+	 * Upper Bounded Type Recebe um List de elementos Number ou seus subtipos.
+	 * Upper bounded √© utilizado para leitura, n√£o permite adi√ß√£o de elementos.
 	 */
 	static <F extends Number> F sort(List<F> list) {
 		F f = null;
+		
+		for(F it : list) {
+			it.toString(); // Podemos chamar apenas m√©todos vis√≠veis para Number. 
+		}
+		
 		return f;
 	}
 
 	/**
-	 * Upper Bounded Type Equivale a declaraÁ„o acima, porÈm n„o poder·
-	 * reutilizar o Type Argument para declaÁ„o ou retorno
+	 * Upper Bounded Type Equivale a declara√ß√£o acima, porÔøΩm nÔøΩo pode√°
+	 * reutilizar o Type Argument para decla√ß√£o ou retorno
 	 */
 	static void sort2(List<? extends Number> list) {
 
 	}
 
 	/**
-	 * Lower Bounded Type Recebe um List de elementos Number ou seus supertipos
+	 * Lower Bounded Type Recebe um List de elementos Number ou seus supertipos.
+	 * Utilizado para adi√ß√£o de elementos do tipo C ou seus subtipos.
 	 */
 	static void sort3(List<? super C> list) {
-
+		// Podemos add A pq ele implementa C, ent√£o
+		// qulquer List<? super C> poder√° receber A
+		list.add(new A());
 	}
 
 	/**
-	 * O Type Parameter L deve ser subclasse ou implementar todos os par‚metros
-	 * (A, D e C). Se um dos par‚metros for uma classe esta deve ser a primeira
-	 * (no caso a classe A) sen„o dar· erro.
+	 * O Type Parameter L deve estender ou implementar todos os par√¢metros
+	 * (A, D e C). Se um dos par√¢metros for uma classe esta deve ser a primeira
+	 * (no caso a classe A) sen√£o dar√° erro.
+	 * Mais utilizado com interfaces.
+	 * Pode receber apenas List<A>
 	 */
-	static <L extends A & D & E> void marge(List<L> list) {
-
+	static <L extends A & D & E> void merge(List<L> list) {
+		for(L it : list) {
+			
+		}
 	}
 
 	@SuppressWarnings("unused")
@@ -50,12 +64,16 @@ public class BoundedTypeParameters {
 		List<Integer> l1 = Arrays.asList(1, 2, 3, 4, 5);
 		sort(l1);
 
-		// A classe A È subclasse da B que implementa C e D
+		// A classe A √© subclasse da B que implementa C e D
 		List<A> l2 = Arrays.asList(new A(), new A(), new A());
-		marge(l2);
+		merge(l2);
 
 		List<C> l3 = Arrays.asList(new C() {
+			public void mE() {}
+			public void mC() {}
 		}, new C() {
+			public void mE() {}
+			public void mC() {}
 		});
 		sort3(l3);
 
@@ -66,15 +84,23 @@ public class BoundedTypeParameters {
 }
 
 interface E {
+	public void mE();
 }
 
 interface D {
+	public void mD();
 }
 
 interface C extends E {
+	public void mC();
 }
 
 class B implements C, D {
+	public void mE() {	}
+
+	public void mD() {	}
+
+	public void mC() {	}
 }
 
 class A extends B {

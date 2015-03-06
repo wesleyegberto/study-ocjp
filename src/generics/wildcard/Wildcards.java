@@ -1,18 +1,18 @@
 /**
- * Wildcards .… usado para poder receber coleÁ„o de qualquer tipo. .SÛ permite
- * adicionar itens null na coleÁ„o, pois o compilador n„o tem certeza se vocÍ
- * est· adicionando itens do tipo correto.
+ * Wildcards .√â usado para poder receber cole√ß√£o de qualquer tipo. .S√≥ permite
+ * adicionar itens null na cole√ß√£o, pois o compilador n√£o tem certeza se voc√™
+ * est√° adicionando itens do tipo correto.
  * 
- * Quando Usar .Quando for usar wildcards È recomendado verificar a funÁ„o da
- * vari·vel. .A vari·vel por ter uma das funÁıes: -"In" Variable: Fornece dados
- * no cÛdigo. -"Out" Variable: Armazena dados para utiliz·-los em outro lugar.
+ * Quando Usar .Quando for usar wildcards √© recomendado verificar a fun√ß√£o da
+ * vari√°vel. .A vari√°vel por ter uma das fun√ß√µes: -"In" Variable: Fornece dados
+ * no c√≥digo. -"Out" Variable: Armazena dados para utiliz√°-los em outro lugar.
  * Ex.: copy(src, dest) src -> "in" variable dest -> "out" variable
  * 
- * .Dicas -quando a "in" variable È usada como Upper Bounded Type, use a keyword
- * extends. -quando a "out" variable È usada como Lower Bounded Type, use a
+ * .Dicas -quando a "in" variable √© usada como Upper Bounded Type, use a keyword
+ * extends. -quando a "out" variable √© usada como Lower Bounded Type, use a
  * keywork super. -quando for preciso acessar membros definidos na classe Object
- * n„o precisar usar limitantes (keywork extends ou super). -quando o cÛdigo
- * precisa acessar a vari·vel como "in" E como "out" variable n„o deve usar
+ * n√£o precisar usar limitantes (keywork extends ou super). -quando o c√≥digo
+ * precisa acessar a vari√°vel como "in" E como "out" variable n√£o deve usar
  * wildcard.
  */
 package generics.wildcard;
@@ -23,8 +23,8 @@ import java.util.List;
 public class Wildcards {
 	/**
 	 * In Variable Recebe List de qualquer coisa. Permite usar membros da classe
-	 * Object. … usado Unbounded Wildcards (?) quando apenas utiliza membros da
-	 * classe Object ou quando o tipo do par‚metro n„o importa.
+	 * Object. √â usado Unbounded Wildcards (?) quando apenas utiliza membros da
+	 * classe Object ou quando o tipo do par√¢metro n√£o importa.
 	 */
 	static void printAnything(List<?> l) {
 		for(Object o : l) {
@@ -34,7 +34,7 @@ public class Wildcards {
 	}
 
 	/**
-	 * In Variable Recebe List de Number ou seus subtipos. … usado Upper Bounded
+	 * In Variable Recebe List de Number ou seus subtipos. √â usado Upper Bounded
 	 * Wildcards (? extends Number) quando quer receber List apenas deste tipo
 	 * ou seus subtipos. Permite usar membros da classe Number.
 	 */
@@ -46,7 +46,7 @@ public class Wildcards {
 	}
 
 	/**
-	 * Out Variable Recebe List de Number ou seus supertipos. … usado Lower
+	 * Out Variable Recebe List de Number ou seus supertipos. √â usado Lower
 	 * Bounded Wildcard (? super Number). Permite adicionar o tipo ou subtipos
 	 * de Number. Permite usar membros da classe Object.
 	 */
@@ -57,7 +57,7 @@ public class Wildcards {
 
 	/**
 	 * In and Out Variable Recebe List de Number ou seus subtipos. Permite usar
-	 * membros do Number. Permite adicionar itens do mesmo tipo. Poderia ou n„o
+	 * membros do Number. Permite adicionar itens do mesmo tipo. Poderia ou n√£o
 	 * utilizar limitantes.
 	 */
 	static <T extends Number> void copyNumber(List<T> ls, List<T> ld) {
@@ -70,10 +70,10 @@ public class Wildcards {
 	public static void main(String[] args) {
 		List<?> l1 = new ArrayList(); // Warning unchecked
 
-		l1.add(null); // -> List<?> sÛ permite adicionar null
+		l1.add(null); // -> List<?> s√≥ permite adicionar null
 		/*
-		 * N„o permite adicionar itens, exceto null, pois o compilador n„o sabe
-		 * que tipo de lista È. l1.add(10); l1.add("S20");
+		 * N√£o permite adicionar itens, exceto null, pois o compilador n√£o sabe
+		 * que tipo de lista √©. l1.add(10); l1.add("S20");
 		 */
 		printAnything(l1);
 
@@ -83,7 +83,7 @@ public class Wildcards {
 		l2.add(3);
 		printNumber(l2);
 
-		l1 = l2; // Permite atribuir l2 a l1 mas depois n„o deixar· modificar.
+		l1 = l2; // Permite atribuir l2 a l1 mas depois n√£o deixar√° modificar.
 
 		List<Object> l3 = new ArrayList<Object>();
 		l3.add(10);

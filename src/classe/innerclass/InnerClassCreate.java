@@ -30,8 +30,9 @@ public class InnerClassCreate {
 			@Override
 			public String doStuff() {
 				/*
-				 * MÈtodos internos sÛ podem acessar vari·vel final do mÈtodo
-				 * externo. return new String(b);
+				 * M√©todos internos s√≥ podem acessar vari√°vel final do m√©todo
+				 * externo.
+				 * return new String(b);
 				 */
 				System.out.println("Inner class in main() cannot access c because it is not final");
 				return new String("Inner class in main() can only access final " + d);

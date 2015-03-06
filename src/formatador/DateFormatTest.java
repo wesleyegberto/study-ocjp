@@ -28,70 +28,46 @@ public class DateFormatTest {
 		c.set(Calendar.MILLISECOND, 899);
 
 		Date d = c.getTime();
-
-		DateFormat f = DateFormat.getInstance(); // Usa o formator para a
-													// localidade e style
-													// default, SHORT (ex.:
-													// 21/12/12 10:45)
+		DateFormat f = DateFormat.getDateInstance();
+		out.println("DateInstance - MEDIUM => " + f.format(d));
+		
+		// Usa o formator para a localidade e style default, SHORT (ex.: 21/12/12 10:45 AM)
+		f = DateFormat.getInstance();
 		out.println("SHORT => " + f.format(d));
 
-		f = DateFormat.getDateInstance(DateFormat.MEDIUM); // Usa o formator
-															// para a localidade
-															// default e o style
-															// recebido, MEDIUM
-															// (ex.: 21/12/2012)
+		// Usa o formator para a localidade default e o style recebido, MEDIUM (ex.: Dec 21, 2012)
+		f = DateFormat.getDateInstance(DateFormat.MEDIUM); 
 		out.println("MEDIUM => " + f.format(d));
 
-		f = DateFormat.getDateInstance(DateFormat.LONG); // Usa o formator para
-															// a localidade
-															// default e o style
-															// recebido, LONG
-															// (ex.: 21 de
-															// Dezembro de 2012)
+		// Usa o formator para a localidade default e o style recebido, LONG (ex.: 21 de Dezembro de 2012)
+		f = DateFormat.getDateInstance(DateFormat.LONG); 
 		out.println("LONG => " + f.format(d));
 
-		f = DateFormat.getDateInstance(DateFormat.FULL); // Usa o formator para
-															// a localidade
-															// default e o style
-															// recebido, FULL
-															// (ex.:
-															// Sexta-feira, 21
-															// de Dezembro de
-															// 2012)
+		// Usa o formator para a localidade default e o style recebido, FULL (ex.: Sexta-feira, 21 de Dezembro de 2012)
+		f = DateFormat.getDateInstance(DateFormat.FULL); 
 		out.println("FULL => " + f.format(d));
 
-		System.out.println("\n\nTestes com Locale");
+		
+		System.out.println("\nTestes com Locale");
 		Locale loc = new Locale("en", "Us"); // Lingua e pais
 
-		f = DateFormat.getDateInstance(DateFormat.LONG, loc); // Usa o
-																// formatador
-																// para o style
-																// e a
-																// localidade
-																// recebida
+		// Usa o formatador para o style e a localidade recebida
+		f = DateFormat.getDateInstance(DateFormat.LONG, loc); 
 		out.println("LONG e Locale => " + f.format(d));
 
-		String dataExtenso = null;
-		DateFormat dateFormat = null;
-
-		c.set(Calendar.DAY_OF_MONTH, 2);
-		c.set(Calendar.MONTH, 2);
-
 		Properties myConfig = System.getProperties();
-		Locale.setDefault(new Locale(myConfig.getProperty("user.language"), myConfig.getProperty("user.country")));
+		
+		String defLang = myConfig.getProperty("user.language");
+		String defCountry = myConfig.getProperty("user.country");
+		
+		System.out.println("\nUser languange: " + defLang);
+		System.out.println("User country: " + defCountry);
+		
+		Locale.setDefault(new Locale(defLang, defCountry));
 
-		dateFormat = new SimpleDateFormat("EEEEE',' dd 'de' MMMM");
-		dataExtenso = dateFormat.format(c.getTime());
-		System.out.println(dataExtenso);
-
-		dateFormat = new SimpleDateFormat("'Barueri,' dd 'de' MMMM 'de' yyyy");
-		dataExtenso = dateFormat.format(c.getTime());
-		System.out.println(dataExtenso);
-
-		Locale.setDefault(new Locale("en", "US"));
-		dateFormat = new SimpleDateFormat("MMM dd',' yyyy");
-		dataExtenso = dateFormat.format(c.getTime());
-		System.out.println(dataExtenso);
+		f = DateFormat.getDateInstance(DateFormat.MEDIUM, loc);
+		out.println("MEDIUM LOC => " + f.format(d));
+		
 	}
 
 }

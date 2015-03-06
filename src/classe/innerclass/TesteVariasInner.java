@@ -12,17 +12,17 @@ public class TesteVariasInner {
 	}
 
 	void go() {
-		new A().m(); // Aqui ser· chamada a classe com middle, pois a inner
-						// ainda n„o existe no escopo
+		new A().m(); // Aqui ser√° chamada a classe com middle, pois a inner
+						// ainda n√£o existe no escopo
 
-		class A // Classe interna do mÈtodo
+		class A // Classe interna do mÔøΩtodo
 		{
 			void m() {
 				System.out.println("inner");
 			}
 		}
 
-		new A().m(); // Aqui ser· chamada a classe com inner, pois j· existe no
+		new A().m(); // Aqui ser√° chamada a classe com inner, pois j√° existe no
 						// escopo
 
 	}
@@ -32,8 +32,7 @@ public class TesteVariasInner {
 	private interface D {}
 	private abstract class E {}
 	
-	class A // Classe interna de TesteVariasInner
-	{
+	class A { // Classe interna de TesteVariasInner
 		void m() {
 			System.out.println("middle");
 		}

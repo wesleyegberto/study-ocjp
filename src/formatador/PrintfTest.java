@@ -25,8 +25,7 @@ public class PrintfTest {
 		System.out.println();
 
 		// 0 seguido de numero indica q são x casas e completada com 0 a
-		// esquerda
-		// , -> separador de milhares
+		// esquerda , -> separador de milhares
 		System.out.printf("%,09d%n", 1645);
 
 		System.out.printf("%,.2f%n", 3998.634);

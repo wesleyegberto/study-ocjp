@@ -1,24 +1,25 @@
 /**
  * Interface Queue e Deque
- * 	.permite operaÁıes em ambas as direÁıes
- * 	.as classes LinkedList e ArrayDeque implementam
- *  .geralmente n„o permite inserir null (exceto LinkedList)
- * 	.recomenda n„o permitir elementos null pois alguns mÈtodos retornam null para indicar que a lista est· vazia
- * 	.todos os mÈtodos de operaÁıes possuem duas versıes:
- * 		-uma que lanÁa exception quando falha
- * 		-uma que retorna algum valor especial (null ou false)
  * 
- * MÈtodos da Queue
+ * > permite opera√ß√µes em ambas as dire√ß√µes;
+ * > as classes LinkedList e ArrayDeque implementam;
+ * > geralmente n√£o permite inserir null (exceto LinkedList);
+ * > recomenda n√£o permitir elementos null pois alguns m√©todos retornam null para indicar que a lista est√° vazia;
+ * > todos os m√©todos de opera√ß√µes possuem duas vers√µes:
+ *   - uma que lan√ßa exception quando falha;
+ * 	 - uma que retorna algum valor especial (null ou false);
+ * 
+ * M√©todos da Queue
  * 	.add(e)
- * 		-adiciona o item e retorna true, se estiver sem espaÁo lanÁa IllegalStateException
+ * 		-adiciona o item e retorna true, se estiver sem espa√ßo lan√ßa IllegalStateException
  * 	.offer(e)
- * 		-usado geralmente em Deque com limites de capacidades (pois o add(e) lanÁa exception)
+ * 		-usado geralmente em Deque com limites de capacidades (pois o add(e) lan√ßa exception)
  * 	.remove() e element()
- * 		-lanÁa NoSuchElementException se estiver vazia
+ * 		-lan√ßa NoSuchElementException se estiver vazia
  * 	.pool() e peek()
  * 		-retorn null se estiver vazia
  * 
- * MÈtodos da Deque:
+ * M√©todos da Deque:
  * 	|__throws exception__|__return especial__|
  * 	| add[First|Last]	 | offer[First|Last] |
  * 	| remove[First|Last] | poll[First|Last]	 |
@@ -47,7 +48,7 @@ public class QueueTest {
 		deck.addFirst("A");
 		deck.add("B");
 		deck.offer("C");
-		//deck.add(null); N„o permite inserir null
+		//deck.add(null); N√£o permite inserir null
 		deck.offerFirst("D");
 		deck.offerLast("E");
 
