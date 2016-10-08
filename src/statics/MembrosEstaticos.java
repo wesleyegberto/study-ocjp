@@ -1,19 +1,18 @@
-// UtilizaÁ„o de vari·veis est·ticas e bloco de inicializaÁ„o est·tico
 package statics;
 
+// Utiliza√ß√£o de vari√°veis est√°ticas e bloco de inicializa√ß√£o est√°tico
 public class MembrosEstaticos {
-	static int incremento; // vari·vel est·tica, È inicializada quando a classe
-							// È carregada, deve ser inicializada antes pois È
-							// final
+	static int incremento; // vari√°vel est√°tica, √© inicializada quando a classe
+							// √© carregada
 
-	// bloco de inicializaÁ„o est·tico, È a primeira coisa que È executado
-	// quando a classe È carregada na memÛria pela JVM
+	// bloco de inicializa√ß√£o est√°tico, √© a primeira coisa que √© executado
+	// quando a classe √© carregada na mem√≥ria pela JVM
 	static {
 		System.out.println("Bloco de inicializacao estatico executado!\n");
 	}
 
-	// bloco de inicializaÁ„o, È executado toda vez que um objeto È inst‚nciado,
-	// apÛs a chamada super() e antes do resto do construtor
+	// bloco de inicializa√ß√£o, √© executado toda vez que um objeto √© inst√¢nciado,
+	// ap√≥s a chamada super() e antes do resto do construtor
 	{
 		System.out.println("Bloco de inicializacao executado!\n");
 	}
